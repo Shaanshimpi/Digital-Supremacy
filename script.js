@@ -631,3 +631,74 @@ gsap.from([`footer h3`, `footer h2`],{
         // markers:true,
     }
 })
+
+//newly added testemonials
+ document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('testimonials-track');
+            const cards = document.querySelectorAll('.testimonial-card');
+            
+            // Calculate total width needed for animation
+            const cardWidth = 370; // Width of each card
+            const gap = 30; // Gap between cards
+            const totalCards = cards.length / 2; // We have duplicates, so divide by 2
+            const totalWidth = (cardWidth + gap) * totalCards;
+            
+            // Set initial position
+            gsap.set(track, { x: 0 });
+            
+            // Create infinite scroll animation
+            const tl = gsap.timeline({ repeat: -1 });
+            
+            tl.to(track, {
+                x: -totalWidth,
+                duration: totalCards * 3, // 3 seconds per card
+                ease: "none"
+            });
+            
+            // Pause animation on hover
+            track.addEventListener('mouseenter', function() {
+                tl.pause();
+            });
+            
+            // Resume animation when mouse leaves
+            track.addEventListener('mouseleave', function() {
+                tl.play();
+            });
+            
+            // Responsive adjustments
+            function updateAnimation() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                const isSmallMobile = window.innerWidth <= 480;
+                
+                let newCardWidth, newGap;
+                
+                if (isSmallMobile) {
+                    newCardWidth = 250;
+                    newGap = 15;
+                } else if (isMobile) {
+                    newCardWidth = 280;
+                    newGap = 20;
+                } else if (isTablet) {
+                    newCardWidth = 300;
+                    newGap = 25;
+                } else {
+                    newCardWidth = 370;
+                    newGap = 30;
+                }
+                
+                const newTotalWidth = (newCardWidth + newGap) * totalCards;
+                
+                // Update the animation with new dimensions
+                tl.clear();
+                tl.to(track, {
+                    x: -newTotalWidth,
+                    duration: totalCards * 3,
+                    ease: "none",
+                    repeat: -1
+                });
+            }
+            
+            // Update animation on window resize
+            window.addEventListener('resize', updateAnimation);
+        });
