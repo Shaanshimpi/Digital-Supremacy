@@ -230,7 +230,7 @@ a:any-link:hover{
 .page3{
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh !important;
     padding: 0 8vw;
     padding-top: 20vh;
     display: flex;
@@ -242,7 +242,7 @@ a:any-link:hover{
 .page3-content-div{
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -656,8 +656,9 @@ a:any-link:hover{
         font-size: 4vw;
     }
     .ff-page3-help-brand-cont{
-        height: 150vh !important;
+        height: 50vh !important;
         /* border: 1px solid #000; */
+        /* background-color:red; */
     }
     .post-cursor{
         display: none !important;
@@ -971,7 +972,7 @@ main, header{
 
 /* ----------------------------------------------------------------------- */
 .ff-page3-help-brand-cont{
-    height: 140vh;
+    height: 80vh;
 }
 .ff-page3-help-brand{
     height: 80vh;
@@ -1390,3 +1391,135 @@ footer{
                 transform: translateY(0);
             }
         }
+
+        //replace
+#pageX * {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#pageX {
+    position: relative;
+    width: 100vw;
+    height: 200vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: all 0.6s ease;
+    z-index: 1;
+    background-color: #000; /* Black fallback */
+}
+
+.pageX-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.pageX {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    isolation: isolate;
+}
+
+/* Heading Background - Fixed for mobile/tablet */
+.pageX-heading-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    display: none;
+    background-color: #000; /* Black background behind image */
+}
+
+.pageX-heading-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.2); /* Reduced brightness */
+}
+
+.pageX h2 {
+    font-size: clamp(1.8rem, 3vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    z-index: 15;
+    position: relative;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    transition: all 0.3s ease;
+    color: white;
+    padding: 0 1rem;
+    letter-spacing: 0.05em;
+  font-family: "Unbounded", sans-serif;
+
+}
+
+.pageX h2:hover{
+    font-style : italic;
+    color:yellow;
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+    .pageX::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.3) blur(40px); /* Darker and more blurred */
+        z-index: -1;
+    }
+    
+    .pageX h2 {
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    }
+
+    .pageX-heading-bg img{
+                filter: brightness(0.3) blur(40px); /* Darker and more blurred */
+
+    }
+}
+
+/* Mobile and tablet styles */
+@media (max-width: 1024px) {
+    .pageX {
+        height: 20vh;
+    }
+    
+    .pageX-heading-bg {
+        display: block;
+    }
+    
+    .pageX-heading-bg img {
+        opacity: 1; /* Full opacity */
+        filter: brightness(0.6); /* Reduced brightness */
+    }
+    
+    .pageX h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        padding: 0 0.5rem;
+    }
+}

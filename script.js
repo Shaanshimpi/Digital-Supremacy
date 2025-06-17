@@ -433,8 +433,8 @@ textArray.forEach((ele,i)=>{
         ease:'ease',
     })
 
-  },7000);
-// },50);
+//   },7000);
+},50);
   function loadScramble(txt) {
     const interval=setInterval(() => {
         setText(randomSymbols(txt.length))
@@ -702,3 +702,33 @@ gsap.from([`footer h3`, `footer h2`],{
             // Update animation on window resize
             window.addEventListener('resize', updateAnimation);
         });
+
+        //pageX
+
+function pageXAnimation() {
+    const pageX = document.querySelector("#pageX");
+    const elems = document.querySelectorAll(".pageX");
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    // Desktop behavior - set first background
+    if (!isTouchDevice && elems.length > 0) {
+        const firstBg = elems[0].getAttribute("data-img");
+        if (firstBg) {
+            pageX.style.backgroundImage = `url(${firstBg})`;
+        }
+        
+        // Desktop hover effects
+        elems.forEach(ele => {
+            ele.addEventListener("mouseenter", function() {
+                const bgImg = ele.getAttribute("data-img");
+                if (bgImg) {
+                    pageX.style.backgroundImage = `url(${bgImg})`;
+                }
+            });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(pageXAnimation, 100);
+});
