@@ -433,8 +433,8 @@ textArray.forEach((ele,i)=>{
         ease:'ease',
     })
 
-//   },7000);
-},50);
+  },7000);
+// },50);
   function loadScramble(txt) {
     const interval=setInterval(() => {
         setText(randomSymbols(txt.length))
