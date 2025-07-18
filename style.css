@@ -103,7 +103,7 @@ main{
     overflow-x: hidden;
 
 }
-header{
+header {
     position: fixed;
     width: 100%;
     height: 13vh;
@@ -115,56 +115,73 @@ header{
     z-index: 9;
     background-color: transparent;
 }
-header .hl{
-    /* width: 40%; */
+
+header .hl {
     height: fit-content;
     font-size: 21px;
     padding-left: 3px;
     display: flex;
     align-items: center;
-    /* background-color: yellow; */
 }
-header .hl img{
+
+header .hl img {
     height: 70px;
     margin-right: 10px;
 }
-header .hl span{
+
+header .hl span {
     margin: -3px;
     font-weight: 300;
-    font-stretch:750%;
+    font-stretch: 750%;
     margin-right: 2.2px;
-    /* background-color: red; */
 }
-header .hr{
+
+header .hr {
     height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
     right: 0;
-    /* background-color: blue; */
+    gap: 20px; /* spacing between navlinks */
 }
-header .hr h3{
+
+header .hr h3 {
     font-size: 17px;
-    font-stretch:900%;
-    font-weight: 200;
+    font-stretch: 900%;
+    font-weight: 600; /* bold font for all navlinks */
     transition: all ease 0.3s;
-    margin-right: 10px;
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 4px;
 }
-header .hr h3:hover{
- font-weight: 400;
- 
+
+header .hr h3:hover {
+    font-weight: 700;
 }
-header button{
+
+header .hr .consultation-btn {
+    background-color: blue;
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 16px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-right: 20px; /* spacing between navlinks */
+}
+
+header button {
     font-size: 13px;
     font-weight: 500;
-    font-stretch:900%;
+    font-stretch: 900%;
     background-color: transparent;
     border: none;
     color: white;
     display: none;
     margin-bottom: 1vw;
 }
+
 .page1{
     width: 100%;
     height:100vh;

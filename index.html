@@ -17,27 +17,41 @@
     <div class="loadingScreen">
         <h2 class="loading-text"></h2>
     </div>
-    <a target="_blank" href="https://wa.me/919689772863?text=Build" class="floating-btn">
+    <a target="_blank" href="https://wa.me/9689473686?text=Build" class="floating-btn">
         <div class="floating-btn-icon">
             <i class="fa fa-whatsapp"></i>
         </div>
     </a>
-    <header>
-        <div class="hl">
-            <img src="logo.png" alt="Digital Supremacy Logo">
-            <div class="logo">
-                <h1><span>M</span>
-                <span>O</span>
-                <span>Q</span>
-                <span>O</span></h1>
-            </div>
-        </div>
-        <div class="hr">
-            <a href="#work"><h3>WORK</h3></a>
-            <a href="#contact"><h3>CONTACT</h3></a>
-        </div>
-        <!-- <button></button> -->
-    </header>
+<header>
+  <div class="hl">
+    <img src="logo.png" alt="Digital Supremacy Logo">
+    <div class="logo">
+      <h1>
+        <span>M</span>
+        <span>O</span>
+        <span>Q</span>
+        <span>O</span>
+      </h1>
+    </div>
+  </div>
+  <div class="hr">
+    <a href="#work"><h3>WORK</h3></a>
+    <a href="#contact"><h3>CONTACT</h3></a>
+<a href="javascript:void(0)" id="openBooking">
+  <h3 class="consultation-btn">Book Free Consultation</h3>
+</a>
+
+
+
+<!-- <div id="bookingContainer" style="display: none; margin-top: 50px;"></div> -->
+
+  </div>
+</header>
+
+
+
+
+    
     <main data-scroll-section>
         <div class="page1">
             <div class="hz-scroll-div">
@@ -516,7 +530,7 @@
         </div>
         <div class="footer-btm">
             <div class="btm-left">
-                <a href="tel:9689772863"><h3>+91 968 977 2863</h3></a>
+                <a href="tel:9689473686"><h3>+91 9689473686</h3></a>
                 <a href="mailto:info@digitalsupremacy.in"><h3>info@digitalsupremacy.in</h3></a>    
             </div>
             <div class="btm-right">
@@ -594,9 +608,90 @@
     <!-- </div> -->
 
     </main>
+<!-- Book Free Consultation Button -->
+<a href="javascript:void(0)" id="openBooking">
+  <h3 class="consultation-btn">Book Free Consultation</h3>
+</a>
+
+<!-- Popup Modal -->
+<div id="popupModal" style="
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+">
+
+
+  <!-- BIG Close Button -->
+  <span id="closeModal" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 100px;
+    font-weight: bold;
+    color: black;
+    background: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  ">&times;</span>
+
+  <!-- Fullscreen iframe with extra height -->
+  <iframe 
+    src="https://api.leadconnectorhq.com/widget/booking/ufFBGUJpaM1GkE5zY0PU"
+    style="
+      width: 100%;
+      min-height: 140vh;
+      border: none;
+      display: block;
+    "
+    scrolling="yes">
+  </iframe>
+</div>
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+
+<script>
+  const openBtn = document.getElementById('openBooking');
+  const closeBtn = document.getElementById('closeModal');
+  const modal = document.getElementById('popupModal');
+
+  openBtn.onclick = () => {
+    modal.style.display = 'flex';
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
+  };
+
+  // Optional: close when clicking outside the box
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+</script>
+
+
 </body>
 </html>
