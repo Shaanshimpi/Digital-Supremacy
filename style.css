@@ -989,7 +989,7 @@ main, header{
 
 /* ----------------------------------------------------------------------- */
 .ff-page3-help-brand-cont{
-    height: 80vh;
+    height: 60vh;
 }
 .ff-page3-help-brand{
     height: 80vh;
@@ -1158,7 +1158,7 @@ footer{
     }
     
     .footer-top{
-        line-height: 13vw;
+        line-height: 14vw;
     }
 }
 @media (max-width:500px){
