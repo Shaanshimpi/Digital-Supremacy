@@ -793,15 +793,16 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.from(card, {
                 opacity: 0,
                 y: 60,
-                duration: 0.8,
+                duration: 0.3,
                 ease: 'power3.out',
                 scrollTrigger: {
                     trigger: card,
                     start: 'top 85%',
                     end: 'top 60%',
+                    markers:true,
                     toggleActions: 'play none none reverse',
                 },
-                delay: index * 0.1,
+                delay: index * 0.01,
             });
         });
     }
@@ -814,10 +815,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Animate section header
         gsap.from(sectionHeader, {
-            opacity: 0,
-            y: 40,
-            duration: 1,
-            ease: 'power3.out',
+              opacity: 0,
+                y: 60,
+                duration: 0.3,
+                ease: 'power3.out',
             scrollTrigger: {
                 trigger: industriesSection,
                 start: 'top 80%',
@@ -830,9 +831,8 @@ document.addEventListener('DOMContentLoaded', function() {
         industryCards.forEach((card, index) => {
             gsap.from(card, {
                 opacity: 0,
-                y: 80,
-                scale: 0.9,
-                duration: 0.9,
+                y: 60,
+                duration: 0.3,
                 ease: 'power3.out',
                 scrollTrigger: {
                     trigger: card,
@@ -840,7 +840,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     end: 'top 50%',
                     toggleActions: 'play none none reverse',
                 },
-                delay: index * 0.12,
+                delay: index * 0.01,
             });
         });
     }
