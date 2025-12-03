@@ -799,7 +799,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     trigger: card,
                     start: 'top 85%',
                     end: 'top 60%',
-                    markers:true,
+                    // markers:true,
                     toggleActions: 'play none none reverse',
                 },
                 delay: index * 0.01,
