@@ -260,6 +260,58 @@ gsap.to(page5, {
         scrub: 2, 
     },
 });
+
+// Testimonials theme transition - sync with page5 theme change
+// Initialize after a short delay to ensure DOM is ready
+setTimeout(() => {
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    
+    if (testimonialCards.length > 0) {
+        // Ensure cards start in light theme
+        testimonialCards.forEach(card => {
+            card.classList.remove('dark-theme');
+        });
+        
+        // Function to check and update theme based on scroll position
+        function updateTestimonialTheme() {
+            const page5Rect = page5.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const triggerPoint = windowHeight * 0.55;
+            const isDark = page5Rect.top <= triggerPoint;
+            
+            testimonialCards.forEach(card => {
+                if (isDark) {
+                    card.classList.add('dark-theme');
+                } else {
+                    card.classList.remove('dark-theme');
+                }
+            });
+        }
+        
+        // Initial check
+        updateTestimonialTheme();
+        
+        // Create scroll trigger that matches page5 exactly
+        ScrollTrigger.create({
+            trigger: page5,
+            start: '55% 50%',
+            end: '55% 49.5%',
+            scroller: 'body',
+            onEnter: () => {
+                testimonialCards.forEach(card => card.classList.add('dark-theme'));
+            },
+            onLeaveBack: () => {
+                testimonialCards.forEach(card => card.classList.remove('dark-theme'));
+            },
+            onEnterBack: () => {
+                testimonialCards.forEach(card => card.classList.add('dark-theme'));
+            },
+            onLeave: () => {
+                testimonialCards.forEach(card => card.classList.remove('dark-theme'));
+            },
+        });
+    }
+}, 100);
 // gsap.to(`.pg5-child3 a`, {
 //     backgroundColor:`transparent`,
 //     color:`white`,
@@ -731,4 +783,65 @@ function pageXAnimation() {
 
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(pageXAnimation, 100);
+    
+    // New Services Section Animations
+    const servicesNew = document.querySelector('#services-new');
+    if (servicesNew) {
+        const serviceCards = servicesNew.querySelectorAll('.service-card-new');
+        
+        serviceCards.forEach((card, index) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 60,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    end: 'top 60%',
+                    toggleActions: 'play none none reverse',
+                },
+                delay: index * 0.1,
+            });
+        });
+    }
+
+    // Who We Work With Section Animations
+    const industriesSection = document.querySelector('#who-we-work-with');
+    if (industriesSection) {
+        const sectionHeader = industriesSection.querySelector('.section-header');
+        const industryCards = industriesSection.querySelectorAll('.industry-card');
+        
+        // Animate section header
+        gsap.from(sectionHeader, {
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: industriesSection,
+                start: 'top 80%',
+                end: 'top 60%',
+                toggleActions: 'play none none reverse',
+            },
+        });
+
+        // Animate industry cards with stagger
+        industryCards.forEach((card, index) => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 80,
+                scale: 0.9,
+                duration: 0.9,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    end: 'top 50%',
+                    toggleActions: 'play none none reverse',
+                },
+                delay: index * 0.12,
+            });
+        });
+    }
 });
